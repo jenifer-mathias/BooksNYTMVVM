@@ -11,8 +11,8 @@ import kotlinx.android.synthetic.main.item_book.view.*
 class BookAdapter(val books: List<Book>) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
-        val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_book, parent, false)
+        val itemView = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_book, parent, false)
         return BookViewHolder(itemView)
     }
 
