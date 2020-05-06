@@ -16,7 +16,6 @@ class BookViewModel : ViewModel() {
     private val repository = BookRepository()
 
     fun getBook(apiKey: String, listName: String) {
-        // bookLiveData.value = createFakeBook()
         repository.getBooks(apiKey, listName).enqueue(object : Callback<BookResponse> {
 
             override fun onResponse(call: Call<BookResponse>, response: Response<BookResponse>) {
@@ -42,17 +41,5 @@ class BookViewModel : ViewModel() {
                 Log.d("VIEW_MODEL", "error ${t.message}")
             }
         })
-
-        fun createFakeBook(): List<Book> {
-            return listOf(
-                Book("Title1", "Description1", "Author1", 123.09),
-                Book("Title2", "Description2", "Author2", 123.09),
-                Book("Title3", "Description3", "Author3", 123.09),
-                Book("Title4", "Description4", "Author4", 123.09),
-                Book("Title5", "Description5", "Author5", 123.09),
-                Book("Title6", "Description6", "Author6", 123.09)
-            )
-        }
-
     }
 }

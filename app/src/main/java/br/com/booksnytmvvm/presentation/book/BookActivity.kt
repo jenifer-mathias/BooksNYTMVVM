@@ -32,7 +32,7 @@ class BookActivity : AppCompatActivity() {
         })
 
         viewModel.isLoading.observe(this, Observer {
-            if (it == true) {
+            if (it) {
                 progress_bar.visibility = View.VISIBLE
             } else {
                 progress_bar.visibility = View.GONE
