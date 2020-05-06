@@ -28,8 +28,8 @@ android {
 
 }
 
-ext{
-  retrofitVersion = "2.6.0"
+ext {
+    retrofitVersion = "2.6.0"
     gsonVersion = "2.8.6"
     supportVersion = "28.0.0"
 }

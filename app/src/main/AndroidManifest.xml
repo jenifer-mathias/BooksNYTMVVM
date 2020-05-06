@@ -11,8 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".presentation.base.BaseActivity"/>
-        <activity android:name=".presentation.book.BookActivity">
+        <activity android:name=".presentation.detail.DetailActivity"
+            android:parentActivityName=".presentation.book.view.BookActivity"/>
+        <activity android:name=".presentation.base.BaseActivity" />
+        <activity android:name=".presentation.book.view.BookActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

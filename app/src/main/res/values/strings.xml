@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BooksNYTMVVM</string>
+    <string name="name_toolbar_book_activity">Lista de livros</string>
+    <string name="name_toolbar_detail_activity">Detalhes</string>
 </resources>

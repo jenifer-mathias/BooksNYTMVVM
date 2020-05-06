@@ -2,10 +2,16 @@ package br.com.booksnytmvvm.presentation.base
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.Toolbar
 
-class BaseActivity : AppCompatActivity() {
+open class BaseActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+   protected fun setupToolbar(toolbar: androidx.appcompat.widget.Toolbar, title: Int, showBackButton: Boolean = false) {
+       toolbar.title = getString(title)
+       setSupportActionBar(toolbar)
+       if (showBackButton) {
+           supportActionBar?.setDisplayHomeAsUpEnabled(true)
+       }
+   }
 }

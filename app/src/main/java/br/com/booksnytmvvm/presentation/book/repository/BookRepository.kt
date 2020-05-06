@@ -1,4 +1,4 @@
-package br.com.booksnytmvvm.presentation.book
+package br.com.booksnytmvvm.presentation.book.repository
 
 import br.com.booksnytmvvm.data.ApiService
 import br.com.booksnytmvvm.data.response.BookResponse

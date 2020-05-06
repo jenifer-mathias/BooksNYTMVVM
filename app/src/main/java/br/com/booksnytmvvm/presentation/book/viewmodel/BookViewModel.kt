@@ -1,10 +1,11 @@
-package br.com.booksnytmvvm.presentation.book
+package br.com.booksnytmvvm.presentation.book.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.booksnytmvvm.data.model.Book
 import br.com.booksnytmvvm.data.response.BookResponse
+import br.com.booksnytmvvm.presentation.book.repository.BookRepository
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -13,6 +14,7 @@ class BookViewModel : ViewModel() {
 
     val bookLiveData: MutableLiveData<List<Book>> = MutableLiveData()
     val isLoading: MutableLiveData<Boolean> = MutableLiveData()
+    val error: MutableLiveData<Boolean> = MutableLiveData()
     private val repository = BookRepository()
 
     fun getBook(apiKey: String, listName: String) {
@@ -39,6 +41,8 @@ class BookViewModel : ViewModel() {
 
             override fun onFailure(call: Call<BookResponse>, t: Throwable) {
                 Log.d("VIEW_MODEL", "error ${t.message}")
+                isLoading.value = false
+                error.value = true
             }
         })
     }
