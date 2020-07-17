@@ -7,5 +7,5 @@ Construção de aplicativo utilizando:
 - Conceito de intent e navegação entre as Activities;
 - RecyclerView (uso de viewHolder, LayoutManager e Adapter);
 - Injeção de dependências;
-- implementação de testes unitários com Mockito.
+- Implementação de testes unitários com Mockito.
 
