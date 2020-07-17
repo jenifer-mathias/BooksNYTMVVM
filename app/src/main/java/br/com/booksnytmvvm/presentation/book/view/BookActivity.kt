@@ -12,6 +12,7 @@ import br.com.booksnytmvvm.BuildConfig
 import br.com.booksnytmvvm.R
 import br.com.booksnytmvvm.presentation.base.BaseActivity
 import br.com.booksnytmvvm.presentation.book.adapter.BookAdapter
+import br.com.booksnytmvvm.presentation.book.repository.BookRepositoryImpl
 import br.com.booksnytmvvm.presentation.book.viewmodel.BookViewModel
 import br.com.booksnytmvvm.presentation.detail.DetailActivity
 import kotlinx.android.synthetic.main.activity_book.*
@@ -24,9 +25,11 @@ class BookActivity : BaseActivity() {
         setContentView(R.layout.activity_book)
         setupToolbar(toolbarBook, R.string.name_toolbar_book_activity, false)
 
-        val viewModel: BookViewModel = ViewModelProviders.of(this).get(
-            BookViewModel::class.java
-        )
+//        val viewModel: BookViewModel = ViewModelProviders.of(this).get(
+//            BookViewModel::class.java
+//        )
+
+        val viewModel: BookViewModel = BookViewModel.ViewModelFactory(BookRepositoryImpl()).create(BookViewModel::class.java)
 
         viewModel.bookLiveData.observe(this, Observer {
             it?.let { books ->
@@ -52,11 +55,11 @@ class BookActivity : BaseActivity() {
             }
         })
 
-        viewModel.error.observe(this, Observer {
-            if (it) {
-                Toast.makeText(this@BookActivity, "Falha no carregamento. Tente mais tarde.", Toast.LENGTH_SHORT).show()
-            }
-        })
+//        viewModel.error.observe(this, Observer {
+//            if (it) {
+//                Toast.makeText(this@BookActivity, "Falha no carregamento. Tente mais tarde.", Toast.LENGTH_SHORT).show()
+//            }
+//        })
 
         viewModel.getBook(
             BuildConfig.API_KEY,
